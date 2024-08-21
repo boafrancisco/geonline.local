@@ -7,7 +7,7 @@
 
 ## Sistema de Gestão Escolar
 
-Projecto de desenvolvimento do Software integrado de Gestão Escolae baseado em framework LARAVEL. 
+Projecto de desenvolvimento do Software integrado de Gestão Escolar baseado em framework LARAVEL. 
 
 ## Licença
 
