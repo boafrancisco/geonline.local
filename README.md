@@ -8,7 +8,7 @@
 ## Sistema de Gestão Escolar
 
 Projecto de desenvolvimento do Software integrado de Gestão Escolar baseado em framework LARAVEL. 
-Outras Ferramentas: Xampp (MySQL, PHP), GIT,GITHUB, Composer, NodeJS e VSCode.
+Outras Ferramentas: Xampp (MySQL, PHP), GIT,GITHUB, Composer, NodeJS, https://www.mindmeister.com/ e VSCode.
 
 ## Licença
 
