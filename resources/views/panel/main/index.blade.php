@@ -1,20 +1,16 @@
-@extends("panel.template.index")
+@extends('panel.template.index')
 
-@section("content")
+@section('content')
+    <div class="content-wrapper">
 
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    @include("panel.main.breadcrumb")
-    <!-- /.content-header -->
+        @include('panel.main.breadcrumb')
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-            <!-- INSERÇÃO -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-
 @endsection

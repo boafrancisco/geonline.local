@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\MainController as SiteMainController;
 use App\Http\Controllers\Panel\MainController as PanelMainController;
+use App\Http\Controllers\Panel\UserController as PanelUserController;
 use App\Http\Controllers\System\MainController as SystemMainController;
+
 use Illuminate\Support\Facades\View;
 
 #Inserção de variavéis globais
@@ -61,8 +63,20 @@ Auth::routes();
 
         #Rota Index do Painel
         Route::get('/painel-de-controle/', [PanelMainController::class, "index"])
-        ->name("index")->setWheres([
+        ->name("index")
+        ->setWheres([
             "titleBreadCrumb"   => "Página Principal"
+        ]);;
+    });
+
+    #Rotas do Controller User
+    Route::name("user.")->group(function(){
+
+        #Rota de Lista de Usuarios
+        Route::get('/usuarios', [PanelUserController::class, "index"])
+        ->name("index")
+        ->setWheres([
+            "titleBreadCrumb"   => "Lista de Usuários"
         ]);;
     });
 });

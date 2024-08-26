@@ -4,3 +4,5 @@
 <script src="{{ asset("Auth-Panel/plugins/chart.js/Chart.min.js") }}"></script>
 <script src="{{ asset("Auth-Panel/dist/js/demo.js") }}"></script>
 <script src="{{ asset("Auth-Panel/dist/js/pages/dashboard3.js") }}"></script>
+@yield("javascriptLocal")
+
