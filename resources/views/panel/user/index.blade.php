@@ -24,8 +24,8 @@
                                         <td>{{ $item->email }}</td>
                                         <td>-</td>
                                         <td>
-                                            <a href="javasecript:;" class="btn btn-info" data-toggle="modal" data-target="#edit-user"><i class=" fa fa-edit"></i></a>
-                                            <a href="javasecript:;" class="btn btn-danger" data-toggle="modal" data-target="#delete-user"><i class=" fa fa-trash"></i></a>
+                                            <a href="javasecript:;" class="btn btn-info" data-toggle="modal" data-target="#edit-user" onclick="dataFormEdit('{{ $item->id }}')"><i class=" fa fa-edit"></i></a>
+                                            <a href="javasecript:;" class="btn btn-danger" data-toggle="modal" data-target="#delete-user" onclick="dataFormDelete('{{ $item->id }}')"><i class=" fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -7,9 +7,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('panel.user.update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('panel.user.update') }}" method="POST" enctype="multipart/form-data" name="formEditUser">
                 {{ csrf_field() }}
+                <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="routetype" value="web">
+                <input type="hidden" name="id">
                 <div class="modal-body">
                     <div class="col-md-12">
                         <div class="card card-danger">
@@ -20,7 +22,7 @@
                                             <span class="input-group-text"><i class="far fa-user"></i></span>
                                         </div>
                                         <input type="text" class="form-control" name="first_name"
-                                            placeholder="Primeiro Nome" value="{{ old('first_name') ?? '' }}">
+                                            placeholder="Primeiro Nome">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -29,7 +31,7 @@
                                             <span class="input-group-text"><i class="far fa-user"></i></span>
                                         </div>
                                         <input type="text" class="form-control" name="last_name"
-                                            placeholder="Apelido" value="{{ old('last_name') ?? '' }}">
+                                            placeholder="Apelido">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -37,8 +39,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="far fa-check-circle"></i></span>
                                         </div>
-                                        <input type="email" class="form-control" name="email" placeholder="E-mail"
-                                            value="{{ old('email') ?? '' }}">
+                                        <input type="email" class="form-control" name="email" placeholder="E-mail">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -47,15 +48,6 @@
                                             <span class="input-group-text"><i class="fa fa-lock"></i></span>
                                         </div>
                                         <input type="password" class="form-control" name="password" placeholder="Senha">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                                        </div>
-                                        <input type="password" class="form-control" name="password_confirmation"
-                                            placeholder="Confirme a senha">
                                     </div>
                                 </div>
                             </div>

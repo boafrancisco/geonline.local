@@ -42,12 +42,19 @@ Route::middleware("auth")->name("panel.")->group(function () {
     #Rotas do Controller User
     Route::name("user.")->group(function () {
 
+        #Rota de Dados do Usuario
+        Route::get('/usuarios/show', [PanelUserController::class, "show"])
+            ->name("show")
+            ->setWheres([
+                "titleBreadCrumb"   => "Dados do Usuário"
+            ]);
+
         #Rota de Lista de Usuarios
         Route::get('/usuarios', [PanelUserController::class, "index"])
-            ->name("index")
-            ->setWheres([
-                "titleBreadCrumb"   => "Lista de Usuários"
-            ]);;
+        ->name("index")
+        ->setWheres([
+            "titleBreadCrumb"   => "Lista de Usuários"
+        ]);;
 
         #Rota de Gravação de Usuarios
         Route::post('/usuarios/cadastro', [PanelUserController::class, "store"])
