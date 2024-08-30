@@ -6,10 +6,49 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use ShieldForce\AutoValidation\Traits\TraitStartInterception;
+use Illuminate\Http\Request;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    use TraitStartInterception;
+
+    public static function rulesCustom(Request $request)
+{
+    return
+        [
+            "request"    => $request,
+            "creating"   =>
+                [
+                    "validations" =>
+                        [
+                            "first_name"    => ["required", "string", "max:50"],
+                            "last_name"     => ["required", "string", "max:50"],
+                            "email"         => ["required", "string", "email", "max:100", "unique:users"],
+                            "password"      => ["required", "string", "min:4", "confirmed"],
+                            "password_confirmation"      => ["required", "string", "min:4"],
+                        ],
+                    "messages" =>
+                        [
+                            "first_name.required" => "Primeiro nome é obritatório",
+                            "last_name.required"  => ":attribute nome é obritatório",
+                        ]
+                ],
+            "retrieved:login"   =>
+                [
+                    "validations" =>
+                        [
+                            "email"         => ["required", "string", "email", "max:100"],
+                            "password"      => ["required", "string"],
+                        ],
+                    "messages" =>
+                        [
+                            //
+                        ]
+                ],
+        ];
+}
 
     /**
      * The attributes that are mass assignable.
