@@ -11,61 +11,61 @@
 
 @if (count($errors) > 0)
 	<script>
-		$.toast( {
-			heading   : 'Atenção ao(s) seguinte(s) erro(s):' ,
-			text      : [
-				@foreach ($errors->all() as $error)
-					"{{ $error }}" ,
-				@endforeach
-			] ,
-			icon      : 'error' ,
-			hideAfter : false ,
-			position  : 'top-right' ,
+		$(function() {
+			$.toast({
+				heading: 'Atenção ao(s) seguinte(s) erro(s):',
+				text: [
+					@foreach ($errors->all() as $error)
+						"{{ $error }}",
+					@endforeach
+				].join('<br>'),
+				icon: 'error',
+				hideAfter: false,
+				position: 'top-right',
+			});
 		});
 
-	</script>
+
+@if(session("error"))
+toastError("Houve um erro", "{{ session("error") }}");
 @endif
 
-<script>
+@if(session("success"))
+toastSuccess("Sucesso!", "{{ session("success") }}");
+@endif
 
-    @if(session("error"))
-        toastError("Houve um erro", "{{ session("error") }}")
-    @endif
+function toastSuccess(title, text) {
+$.toast({
+    heading: title,
+    text: text,
+    icon: 'success',
+    hideAfter: 4000, // 4 segundos
+    position: 'middle-center',
+});
+}
 
-    @if(session("success"))
-        toastSucess("Sucesso!", "{{ session("success") }}")
-    @endif
+function toastError(title, text) {
+$.toast({
+    heading: title,
+    text: text,
+    icon: 'error',
+    hideAfter: 4000, // 4 segundos
+    position: 'middle-center',
+});
+}
 
-     function toastSucess(title, text){
-            $.toast( {
-			heading   : title ,
-			text      : text ,
-			icon      : 'success' ,
-			hideAfter : false ,
-			position  : 'top-right' ,
-		});
-        }
+function toastInfo(title, text) {
+$.toast({
+    heading: title,
+    text: text,
+    icon: 'info',
+    hideAfter: 4000, // 4 segundos
+    position: 'middle-center',
+});
+}
 
-        function toastError(title, text){
-            $.toast( {
-			heading   : title ,
-			text      : text ,
-			icon      : 'error' ,
-			hideAfter : false ,
-			position  : 'top-right' ,
-		});
-        }
-
-        function toastInfo(title, text){
-            $.toast( {
-			heading   : title ,
-			text      : text ,
-			icon      : 'info' ,
-			hideAfter : false ,
-			position  : 'top-right' ,
-		});
-        }
 </script>
+@endif
 
 @yield("javascriptLocal")
 

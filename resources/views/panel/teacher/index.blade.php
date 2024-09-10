@@ -1,22 +1,24 @@
 @extends('panel.template.index')
 @section('content')
     <div class="content-wrapper">
-        @include('panel.user.breadcrumb')
+        @include('panel.teacher.breadcrumb')
         <div class="content">
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-body">
                         @if($list->isEmpty())
-                            <p>Nenhum usuário encontrado.</p>
+                            <p>Nenhum professor encontrado.</p>
                         @else
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th style="width: 5%;">#</th>
-                                        <th style="width: 30%;">Nome</th>
-                                        <th style="width: 25%;">E-mail</th>
-                                        <th style="width: 20%;">Funções</th>
-                                        <th style="width: 15%;">Acções</th>
+                                        <th style="width: 20%;">Nome</th>
+                                        <th style="width: 20%;">E-mail</th>
+                                        <th style="width: 15%;">NUIT</th>
+                                        <th style="width: 10%;">Data Nascimento</th>
+                                        <th style="width: 20%;">Endereço</th>
+                                        <th style="width: 10%;">Acções</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -25,6 +27,8 @@
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->first_name }} {{ $item->last_name }}</td>
                                             <td>{{ $item->email }}</td>
+                                            <td>-</td>
+                                            <td>-</td>
                                             <td>-</td>
                                             <td>
                                                 <a href="javascript:void(0);" class="btn btn-info" data-toggle="modal" data-target="#edit-user" onclick="dataFormEdit('{{ $item->id }}'); event.preventDefault();">
@@ -45,8 +49,8 @@
         </div>
     </div>
 @endsection
-@includeIf('panel.user.Local.index.head')
-@includeIf('panel.user.Local.index.javascript')
-@includeIf('panel.user.Local.index.modals.create')
-@includeIf('panel.user.Local.index.modals.edit')
-@includeIf('panel.user.Local.index.modals.delete')
+@includeIf('panel.estudante.Local.index.head')
+@includeIf('panel.estudante.Local.index.javascript')
+@includeIf('panel.estudante.Local.index.modals.create')
+@includeIf('panel.estudante.Local.index.modals.edit')
+@includeIf('panel.estudante.Local.index.modals.delete')

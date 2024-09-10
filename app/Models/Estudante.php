@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use ShieldForce\AutoValidation\Traits\TraitStartInterception;
 use Illuminate\Http\Request;
 
-class User extends Authenticatable
+class Estudante extends Authenticatable
 {
     use HasFactory, Notifiable;
     use TraitStartInterception;

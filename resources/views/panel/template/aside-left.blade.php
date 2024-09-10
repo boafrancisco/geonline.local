@@ -53,31 +53,31 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('panel.main.index') }}" class="nav-link">
+                            <a href="{{ route('panel.student.index') }}" class="nav-link">
                                 <i class="far fa-school nav-icon"></i>
                                 <p>Estudante</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('panel.main.index') }}" class="nav-link">
+                            <a href="{{ route('panel.teacher.index') }}" class="nav-link">
                                 <i class="far fa-book nav-icon"></i>
                                 <p>Professor</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('panel.main.index') }}" class="nav-link">
+                            <a href="{{ route('panel.course.index') }}" class="nav-link">
                                 <i class="far fa-book nav-icon"></i>
                                 <p>Curso</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('panel.main.index') }}" class="nav-link">
+                            <a href="{{ route('panel.class.index') }}" class="nav-link">
                                 <i class="far fa-class nav-icon"></i>
                                 <p>Turma</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('panel.main.index') }}" class="nav-link">
+                            <a href="{{ route('panel.subject.index') }}" class="nav-link">
                                 <i class="far fa-subject nav-icon"></i>
                                 <p>Disciplina</p>
                             </a>

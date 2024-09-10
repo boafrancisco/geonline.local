@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class CursoController extends Controller
 {
     protected $request;
     protected $model;
@@ -38,22 +38,21 @@ class UserController extends Controller
      */
     public function store()
     {
-        // Gravação do usuário
+        // Gravação do curso
 
          $create = $this->model->create($this->request->all());
          $this->request["id"] = $create->id;
-         $create->password = Hash::make($this->request->password);
-         $create->password_confirmation = Hash::make($this->request->password_confirmation);
+
          $create->save();
 
         if ($create)
             return redirect()
-                ->route("panel.user.index")
-                ->with("success", "Usuário criado com sucesso!");
+                ->route("panel.course.index")
+                ->with("success", "Curso criado com sucesso!");
 
         return back()
             ->withInput()
-            ->with("error", "Erro ao criar o usuário");
+            ->with("error", "Erro ao criar o curso");
     }
 
     /**
@@ -61,7 +60,7 @@ class UserController extends Controller
      */
     public function update()
     {
-        // Actualização do usuário
+        // Actualização do curso
         $item = $this->model->find($this->request->id);
 
         if ($item->password != $this->request->password) {
@@ -72,11 +71,11 @@ class UserController extends Controller
 
         if ($update)
             return back()
-                ->with("success", "Usuário editado com sucesso!");
+                ->with("success", "Curso editado com sucesso!");
 
         return back()
             ->withInput()
-            ->with("error", "Erro ao editar o usuário");
+            ->with("error", "Erro ao editar o curso");
     }
 
     /**
@@ -85,16 +84,16 @@ class UserController extends Controller
      */
     public function delete($id)
     {
-        // Remoção do usuário
+        // Remoção do curso
         $item = $this->model->find($this->request->id);
         $delete = $item->delete();
         if ($delete)
             return back()
-                ->with("success", "Usuário removido com sucesso!");
+                ->with("success", "Curso removido com sucesso!");
 
         return back()
             ->withInput()
-            ->with("error", "Erro ao remover o usuário");
+            ->with("error", "Erro ao remover o curso");
 
     }
 
